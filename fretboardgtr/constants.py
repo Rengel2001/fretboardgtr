@@ -194,25 +194,18 @@ class NoteName(str, Enum):
     literal string.
     """
 
-    A = "A"
-    B = "B"
-    C = "C"
-    D = "D"
-    E = "E"
-    F = "F"
-    G = "G"
-    A_SHARP = "A#"
-    A_FLAT = "Ab"
-    B_FLAT = "Bb"
-    C_FLAT = "Cb"
-    C_SHARP = "C#"
-    D_FLAT = "Db"
-    D_SHARP = "D#"
-    E_FLAT = "Eb"
-    E_SHARP = "E#"
-    F_SHARP = "F#"
-    G_FLAT = "Gb"
-    G_SHARP = "G#"
+    O = "O"
+    P = "P"
+    Q = "Q"
+    R = "R"
+    S = "S"
+    T = "T"
+    U = "U"
+    V = "V"
+    W = "W"
+    X = "X"
+    Y = "Y"
+    Z = "Z"
 
 
 class Interval(str, Enum):
@@ -223,17 +216,17 @@ class Interval(str, Enum):
     """
 
     ROOT = "1"
-    MINOR_SECOND = "b2"
-    MAJOR_SECOND = "2"
-    MINOR_THIRD = "b3"
-    MAJOR_THIRD = "3"
-    PERFECT_FOURTH = "4"
-    DIMINISHED_FIFTH = "b5"
-    PERFECT_FIFTH = "5"
-    MINOR_SIXTH = "b6"
-    MAJORS_IXTH = "6"
-    MINOR_SEVENTH = "b7"
-    MAJOR_SEVENTH = "7"
+    SECOND = "2" 
+    THIRD = "3"
+    FOURTH = "4"
+    FIFTH = "5"
+    SIXTH = "6"
+    SEVENTH = "7"
+    EIGHTH = "8"
+    NINTH = "9"
+    TENTH = "10"
+    ELEVENTH = "11"
+    TWELFTH = "12"
 
 
 class LongInterval(str, Enum):
@@ -244,79 +237,67 @@ class LongInterval(str, Enum):
     """
 
     ROOT = "root"
-    MINOR_SECOND = "minor_second"
-    MAJOR_SECOND = "major_second"
-    MINOR_THIRD = "minor_third"
-    MAJOR_THIRD = "major_third"
-    PERFECT_FOURTH = "perfect_fourth"
-    DIMINISHED_FIFTH = "diminished_fifth"
-    PERFECT_FIFTH = "perfect_fifth"
-    MINOR_SIXTH = "minor_sixth"
-    MAJORS_IXTH = "major_sixth"
-    MINOR_SEVENTH = "minor_seventh"
-    MAJOR_SEVENTH = "major_seventh"
+    SECOND = "second"
+    THIRD = "third"
+    FOURTH = "fourth"
+    FIFTH = "fifth"
+    SIXTH = "sixth"
+    SEVENTH = "seventh"
+    EIGHTH = "eighth"
+    NINTH = "ninth"
+    TENTH = "tenth"
+    ELEVENTH = "eleventh"
+    TWELFTH = "twelfth"
 
 
-CHROMATICS_NOTES = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
-SHARP_CHROMATICS_NOTES = CHROMATICS_NOTES
-FLAT_CHROMATICS_NOTES = [
-    "A",
-    "Bb",
-    "B",
-    "C",
-    "Db",
-    "D",
-    "Eb",
-    "E",
-    "F",
-    "Gb",
-    "G",
-    "Ab",
-]
-CHROMATICS_INTERVALS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "b6", "6", "b7", "7"]
+CHROMATICS_NOTES = ["O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+CHROMATICS_INTERVALS = [str(i) for i in range(1, 13)]  # ["1", "2", ..., "12"]
 
 FLAT_ALTERATIONS = {
-    "Bb": "A#",
-    "Db": "C#",
-    "Eb": "D#",
-    "Gb": "F#",
-    "Ab": "G#",
+    "P": "P",  # Bb → P
+    "S": "S",  # Db → S
+    "U": "U",  # Eb → U
+    "X": "X",  # Gb → X
+    "Z": "Z"   # Ab → Z
 }
 
 SHARP_ALTERATIONS = {value: key for (key, value) in FLAT_ALTERATIONS.items()}
 FULL_ALTERATIONS = {**FLAT_ALTERATIONS, **SHARP_ALTERATIONS}
+
+# Update ENHARMONICS and alterations to match O-Z notation:
 ENHARMONICS = {
-    "A#": "Bb",
-    "B": "Cb",
-    "F": "E#",
-    "C": "B#",
-    "B#": "C",
-    "C#": "Db",
-    "D#": "Eb",
-    "E": "Fb",
-    "F#": "Gb",
-    "G#": "Ab",
+    "P": "P",  # A#/Bb → P
+    "Q": "Q",  # B → Q
+    "R": "R",  # C → R
+    "S": "S",  # C#/Db → S
+    "T": "T",  # D → T
+    "U": "U",  # D#/Eb → U
+    "V": "V",  # E → V
+    "W": "W",  # F → W
+    "X": "X",  # F#/Gb → X
+    "Y": "Y",  # G → Y
+    "Z": "Z"   # G#/Ab → Z
 }
 
 INTERVAL_MAPPING = {
     "root": "1",
-    "minorsecond": "b2",
-    "majorsecond": "2",
-    "minorthird": "b3",
-    "majorthird": "3",
-    "perfectfourth": "4",
-    "diminishedfifth": "b5",
-    "perfectfifth": "5",
-    "minorsixth": "b6",
-    "majorsixth": "6",
-    "minorseventh": "b7",
-    "majorseventh": "7",
+    "second": "2",
+    "third": "3",
+    "fourth": "4",
+    "fifth": "5",
+    "sixth": "6",
+    "seventh": "7",
+    "eighth": "8",
+    "ninth": "9",
+    "tenth": "10",
+    "eleventh": "11",
+    "twelfth": "12"
 }
 
 DOTS_FRETBOARD_POSITIONS = [0, 3, 5, 7, 9, 12]
 NUMBER_OF_DOTS = [2, 1, 1, 1, 1, 2]
 
-STANDARD_TUNING = ["E", "A", "D", "G", "B", "E"]
+STANDARD_TUNING = ["V", "O", "T", "Y", "Q", "V"]  # E→V, A→O, D→T, G→Y, B→Q
 
 WHITE = "rgb(255,255,255)"
 BLACK = "rgb(0,0,0)"

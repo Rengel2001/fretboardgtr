@@ -11,18 +11,18 @@ from fretboardgtr.base import ConfigIniter
 class NoteColors(ConfigIniter):
     """Dataclass containing the mapping of colors and intervals."""
 
-    root: str = "rgb(231, 0, 0)"
-    minor_second: str = "rgb(249, 229, 0)"
-    major_second: str = "rgb(249, 165, 0)"
-    minor_third: str = "rgb(0, 94, 0)"
-    major_third: str = "rgb(0, 108, 0)"
-    perfect_fourth: str = "rgb(0, 154, 0)"
-    diminished_fifth: str = "rgb(0, 15, 65)"
-    perfect_fifth: str = "rgb(0, 73, 151)"
-    minor_sixth: str = "rgb(168, 107, 98)"
-    major_sixth: str = "rgb(222, 81, 108)"
-    minor_seventh: str = "rgb(120, 37, 134)"
-    major_seventh: str = "rgb(120, 25, 98)"
+    root: str = "rgb(255, 0, 0)"          # Red
+    second: str = "rgb(255, 165, 0)"      # Orange
+    third: str = "rgb(255, 255, 0)"       # Yellow
+    fourth: str = "rgb(0, 255, 0)"        # Green
+    fifth: str = "rgb(0, 128, 255)"       # Bright Blue 
+    sixth: str = "rgb(135, 206, 235)"     # Light Blue
+    seventh: str = "rgb(128, 0, 128)"     # Deep Purple 
+    eighth: str = "rgb(221, 160, 221)"    # Light Pink-Purple
+    ninth: str = "rgb(255, 20, 147)"      # Deep Neon Pink
+    tenth: str = "rgb(210, 105, 30)"      # Light Brown
+    eleventh: str = "rgb(192, 192, 192)"  # Light Gray
+    twelfth: str = "rgb(50, 255, 127)"    # Bright Aqua Green
 
     def from_short_interval(self, interval: str) -> str:
         """Get color for the given short interval.
